@@ -1,0 +1,47 @@
+[project]
+name = "demobackendrepo"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "gazi04", email = "gazmendhalili2016@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "alembic>=1.18.5",
+    "fastapi>=0.138.2",
+    "pydantic[email]>=2.13.4",
+    "pydantic-settings>=2.14.2",
+    "sqlalchemy[asyncio]>=2.0.51",
+    "uvicorn>=0.49.0",
+    "uvloop>=0.22.1",
+    "psycopg[binary]>=3.3.6",
+]
+
+[dependency-groups]
+dev = [
+    "httpx>=0.28.1",
+    "pre-commit>=4.6.1",
+    "pyright>=1.1.411",
+    "ruff>=0.15.21",
+]
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+
+[tool.ruff]
+target-version = "py313"
+line-length = 88
+exclude = ["alembic/versions", ".venv"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "S", "ASYNC", "SIM", "RUF"]
+ignore = [ "B008", "S101" ]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**"    = ["S101", "S105", "S106", "F841", "E501"]
+"scripts/**"  = ["E501", "S107", "S608"]
+"alembic/**"  = ["E501", "F401"]
+"core/**"     = ["E501", "S104"]
+
