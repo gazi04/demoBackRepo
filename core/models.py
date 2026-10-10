@@ -11,6 +11,7 @@ class Customer(Base):
     __tablename__ = "customers"
     id: Mapped[str] = mapped_column(String(255), primary_key=True)
     name: Mapped[str] = mapped_column(String(255))
+    surname: Mapped[str] = mapped_column(String(255))
 
 class Order(Base):
     __tablename__ = "orders"
