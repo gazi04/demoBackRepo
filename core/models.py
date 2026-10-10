@@ -1,5 +1,6 @@
 from sqlalchemy import (
     Integer,
+    Numeric,
     String,
 )
 from sqlalchemy.orm import Mapped, mapped_column
@@ -18,7 +19,7 @@ class Order(Base):
     customer: Mapped[str] = mapped_column(String(255))
     ordered_at: Mapped[str] = mapped_column(String(255))
     store_id: Mapped[str] = mapped_column(String(255))
-    subtotal: Mapped[int] = mapped_column(Integer)
+    subtotal: Mapped[int] = mapped_column(Numeric(10, 2))
     tax_paid: Mapped[int] = mapped_column(Integer)
     order_total: Mapped[int] = mapped_column(Integer)
 
