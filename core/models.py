@@ -10,7 +10,7 @@ from core.database import Base
 class Customer(Base):
     __tablename__ = "customers"
     id: Mapped[str] = mapped_column(String(255), primary_key=True)
-    name: Mapped[str] = mapped_column(String(255))
+    full_name: Mapped[str] = mapped_column(String(255))
 
 class Order(Base):
     __tablename__ = "orders"
