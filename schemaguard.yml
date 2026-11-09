@@ -1,0 +1,9 @@
+manifest: ../demoDataRepo/jaffle_shop/target/manifest.json
+migrations: alembic/versions
+sources:
+  customers: ecom.raw_customers
+  orders: ecom.raw_orders
+  items: ecom.raw_items
+ignore:
+  - alembic_version
+fail_on: breaking
