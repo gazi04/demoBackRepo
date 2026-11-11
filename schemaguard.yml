@@ -1,4 +1,4 @@
-manifest: ../demoDataRepo/jaffle_shop/target/manifest.json
+manifest: dbt/manifest.json
 migrations: alembic/versions
 sources:
   customers: ecom.raw_customers
