@@ -1,0 +1,22 @@
+name: SchemaGuard
+
+on:
+  pull_request:
+
+concurrency:
+  group: schemaguard-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  schemaguard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      # fetch-depth 2: SchemaGuard diffs the PR's merge commit against HEAD^1.
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 2
+      - uses: gazi04/schemaGuard@main
